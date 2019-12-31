@@ -1,42 +1,64 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
+using System.Reflection;
+using System.Resources;
 using System.Threading.Tasks;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Localization;
+ 
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization;
-using Newtonsoft.Json;
+using Microsoft.Extensions.Localization; using Newtonsoft.Json;
 using RoundTableAPILib;
 using RoundTableERPDal;
 using RoundTableERPDal.Models;
 using RoundTableWeb.Erp;
- 
+ using System.Linq;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.CodeAnalysis;
+
 namespace RoundTableERP.Controllers
 {
+
     public class StockController : Controller
     {
-        private  readonly IStringLocalizer<StockController> _localizer;
-        
+
+        private readonly IStringLocalizer<StockController> _localizer;
+
         RoundTableAPIClient apiClient = new RoundTableAPIClient();
-        // GET
+
+        public IActionResult SetLanguage(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions {Expires = DateTimeOffset.UtcNow.AddYears(1)}
+            );
+
+            return LocalRedirect(returnUrl);
+        }
+
 
         public StockController(IStringLocalizer<StockController> localizer)
         {
-          
             _localizer = localizer;
-            
+
+
         }
-        public IActionResult Index()  
+
+        public IActionResult Index()
         {
-            var test = _localizer[ResourceKeys.StockPageTitle].Value;
+            var testCulture = CultureInfo.CurrentCulture.Name;
 
+            var TEST = LocalizableResourceString.ViewBag.Title = testCulture;
 
-            ViewBag.Title = _localizer.GetString("StockPageTitle");
 
             return View();
         }
+
 
         // GET
         public IActionResult ReadData()
@@ -68,8 +90,9 @@ namespace RoundTableERP.Controllers
                 int x = await apiClient.PostUpdateStock(stockItem);
             }
 
-            return Json(new[] { stockItem }.ToDataSourceResult(request, ModelState));
+            return Json(new[] {stockItem}.ToDataSourceResult(request, ModelState));
         }
+
         // POST: SalesOrder/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -87,17 +110,8 @@ namespace RoundTableERP.Controllers
             }
         }
 
-        [HttpPost]
-        public IActionResult SetLanguage(string culture, string returnUrl)
-        {
-            Response.Cookies.Append(
-                CookieRequestCultureProvider.DefaultCookieName,
-                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
-            );
 
-            return LocalRedirect(returnUrl);
-        }
 
     }
+
 }

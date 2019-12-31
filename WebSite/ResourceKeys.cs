@@ -9,6 +9,6 @@ namespace RoundTableWeb.Erp
     {
         public const string StockPageTitle = "StockPageTitle";
       
-  
+   
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,6 +18,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Serialization;
 using RoundTableERPDal;
+ 
 
 namespace RoundTableWeb.Erp
 {
@@ -32,44 +34,32 @@ namespace RoundTableWeb.Erp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
+       
 
-            services.Configure<RequestLocalizationOptions>(opts =>
+            services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
+
+            services.Configure<RequestLocalizationOptions>(options =>
             {
-                var supportedCultures = new List<CultureInfo> { new CultureInfo("en-GB"), new CultureInfo("fr-FR"), };
+                var supportedCultures = new[]
+                {
+                    new CultureInfo("en"),
+                    new CultureInfo("de")
+                };
 
-                opts.DefaultRequestCulture = new RequestCulture("en-GB");
+                options.DefaultRequestCulture = new RequestCulture(culture: "de", uiCulture: "de");
+                options.SupportedUICultures = supportedCultures;
+                options.SupportedCultures = supportedCultures;
+            });
 
-                // Formatting numbers, dates, etc.
-                opts.SupportedCultures = supportedCultures;
-                // UI strings that we have localized.
-                opts.SupportedUICultures = supportedCultures;
-            });
-            // Add framework services.
-            services.AddControllersWithViews()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
-                // Maintain property names during serialization. See:
-                // https://github.com/aspnet/Announcements/issues/194
-                .AddNewtonsoftJson(options =>
-                    options.SerializerSettings.ContractResolver = new DefaultContractResolver())
-                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,
-                    opts => { opts.ResourcesPath = "Resources"; })
-                .AddDataAnnotationsLocalization();
-            services.Configure<ConnectionStringConfig>(Configuration);
-            //lets inject the connection string to the data layer 
-            //but we should be using the api layer for any heavy lifting.
-            services.AddHttpClient("externalservice", c =>
-            {
-                // Assume this is an "external" service which requires an API KEY
-                c.BaseAddress = new Uri("https://localhost:5001/");
-            });
-        
-            // Add Kendo UI services to the services container
-                        services.AddKendo();
+
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -77,68 +67,22 @@ namespace RoundTableWeb.Erp
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
-            SetUpLocalization(app);
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseCookiePolicy();
 
-            app.UseRouting();
+            app.UseRequestLocalization(app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);
 
-            app.UseAuthorization();
-
-            var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
-        
-            app.UseRequestLocalization(options.Value);
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
-
-
+            app.UseMvcWithDefaultRoute();
         }
-        private static void SetUpLocalization(IApplicationBuilder app)
-        {
-            var supportedCultures = new[]
-            {
-                new CultureInfo("en-US"),
-                new CultureInfo("en-GB")
-            };
+  
 
-            var options = new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture("en-GB", "en-GB"),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures,
-             
-            };
-            options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async context =>
-            {
-                // My custom request culture logic
-                return new ProviderCultureResult("en");
-            }));
-
-            // Find the cookie provider with LINQ
-            var cookieProvider = options.RequestCultureProviders
-                .OfType<CookieRequestCultureProvider>()
-                .First();
-            // Set the new cookie name
-            cookieProvider.CookieName = "UserCulture";
-
-
-            // Configure the Localization middleware
-            app.UseRequestLocalization(options);
-
-
-
-
-        }
-
-        private string BuildResponse(IStringLocalizer stringLocalizer, IStringLocalizerFactory stringLocalizerFactory)
+    private string BuildResponse(IStringLocalizer stringLocalizer, IStringLocalizerFactory stringLocalizerFactory)
         {
             var currentCultureName = CultureInfo.CurrentCulture.EnglishName;
             var currentUICultureName = CultureInfo.CurrentUICulture.EnglishName;
