@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,8 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OrderManager.Core\RoundTableCore.csproj" />
-    <ProjectReference Include="..\SalesOrdersDL\RoundTableERPDal.csproj" />
+    <ProjectReference Include="..\RoundTableDal\RoundTableDal\RoundTableDal.csproj" />
   </ItemGroup>
 
 </Project>
