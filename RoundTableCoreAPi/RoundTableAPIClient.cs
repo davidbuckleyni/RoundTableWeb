@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RoundTableAPILib.Models;
 using RoundTableCore;
+using RoundTableDal.Models;
 using RoundTableERPDal;
-using RoundTableERPDal.Models;
+
 
 namespace RoundTableAPILib
 {

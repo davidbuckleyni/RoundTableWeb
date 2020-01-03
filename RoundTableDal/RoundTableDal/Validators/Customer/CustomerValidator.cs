@@ -1,8 +1,10 @@
 ﻿using FluentValidation;
-using RoundTableERPDal.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Text;
+using RoundTableDal.Models;
+
 namespace RoundTableERPDal.Validators
 {
     public class CustomerValidator : AbstractValidator<Customer>

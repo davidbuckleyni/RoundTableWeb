@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RoundTableERPDal
+namespace RoundTableDal
 {
     class DataAccess
     {

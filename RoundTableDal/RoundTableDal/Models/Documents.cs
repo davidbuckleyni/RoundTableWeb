@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.AccessControl;
 using System.Text;
 
-namespace RoundTableERPDal.Models
+namespace RoundTableDal.Models
 {
     public class Documents
     {

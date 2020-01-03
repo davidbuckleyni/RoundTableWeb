@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoundTableDal", "RoundTable
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoundTableConsoleTools", "RoundTableConsoleTools\RoundTableConsoleTools\RoundTableConsoleTools.csproj", "{5D05FA03-62B7-40DD-8255-6E601328A4DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoundTableService", "RoundTableService\RoundTableService\RoundTableService.csproj", "{14B46D9D-60B1-4160-9F97-B792A420BC0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{5D05FA03-62B7-40DD-8255-6E601328A4DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D05FA03-62B7-40DD-8255-6E601328A4DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D05FA03-62B7-40DD-8255-6E601328A4DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14B46D9D-60B1-4160-9F97-B792A420BC0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14B46D9D-60B1-4160-9F97-B792A420BC0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14B46D9D-60B1-4160-9F97-B792A420BC0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14B46D9D-60B1-4160-9F97-B792A420BC0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

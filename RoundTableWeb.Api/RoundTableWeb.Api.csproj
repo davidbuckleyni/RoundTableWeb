@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\DataAccessLayer\SalesOrdersDL\RoundTableERPDal.csproj" />
+    <ProjectReference Include="..\RoundTableDal\RoundTableDal\RoundTableDal.csproj" />
   </ItemGroup>
 
   <ItemGroup>

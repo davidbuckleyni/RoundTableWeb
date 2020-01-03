@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Dapper.Contrib.Extensions;
 
-namespace RoundTableERPDal
+namespace RoundTableDal.Models
 {
    
 

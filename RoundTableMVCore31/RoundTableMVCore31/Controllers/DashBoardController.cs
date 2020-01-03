@@ -14,11 +14,22 @@ namespace RoundTableMVCore31.Controllers
     {
         private readonly ILogger<DashBoardController> _logger;
         private readonly IStringLocalizer<DashBoardController> _localizer;
+        public IActionResult Index()
 
+
+        {
+            var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
+            // Culture contains the information of the requested culture
+            var culture = rqf.RequestCulture.Culture;
+
+            var test = _localizer["test"].Value;
+            return View();
+        }
         public DashBoardController(ILogger<DashBoardController> logger, IStringLocalizer<DashBoardController> localizer)
         {
-            _logger = logger;
             _localizer = localizer;
+            _logger = logger;
+         
 
         }
 
@@ -32,12 +43,6 @@ namespace RoundTableMVCore31.Controllers
 
             return LocalRedirect(returnUrl);
         }
-        public IActionResult Index()
-
-
-        {
-            var test = _localizer["test 1"];
-            return View();
-        }
+     
     }
 }

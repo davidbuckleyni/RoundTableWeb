@@ -5,9 +5,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RoundTableAPILib;
+using RoundTableDal;
 using RoundTableERPDal;
-using RoundTableERPDal.Models;
-using RoundTableERPDal.Models;
+
 namespace RoundTableWeb.Api.Stock
 {
     public class StockServices
@@ -17,12 +17,12 @@ namespace RoundTableWeb.Api.Stock
         public HttpClient Client { get; }
 
      
-        private void UpdateStock(RoundTableERPDal.Stock _stock)
+        private void UpdateStock(RoundTableDal.Models.Stock _stock)
         {
             db.UpdateStockItem(_stock);
         }
 
-        private void DeleteStock(RoundTableERPDal.Stock _stock)
+        private void DeleteStock(RoundTableDal.Models.Stock _stock)
         {
             db.DeleteStockItem(_stock);
         }

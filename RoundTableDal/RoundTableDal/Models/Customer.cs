@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RoundTableERPDal.Models
+namespace RoundTableDal.Models
 {
     public class Customer
     {

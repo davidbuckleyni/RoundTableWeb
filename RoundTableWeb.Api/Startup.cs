@@ -16,6 +16,8 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 using RoundTableERPDal;
 using Newtonsoft.Json;
+using RoundTableDal;
+
 namespace RoundTableWeb.Api
 {
     public class Startup

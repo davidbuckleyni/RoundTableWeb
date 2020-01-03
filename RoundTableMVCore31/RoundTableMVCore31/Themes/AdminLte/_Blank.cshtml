@@ -42,10 +42,12 @@
       
       <!-- SEARCH FORM -->
       <form class="form-inline ml-3">
-        
-        
-        @Html.Partial("_SelectLanguagePartial.cshtml")
+        <!--   @Html.Partial("_SelectLanguagePartial.cshtml")-->
+        @await Html.PartialAsync("_SelectLanguagePartial")
 
+
+        
+   
         <div class="input-group input-group-sm">
           <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -174,6 +176,9 @@
     </section>
 
     @RenderBody() 
+    
+    <partial name="_CookieConsentPartial" />
+
 
   </div>
     <!-- /.content-wrapper -->

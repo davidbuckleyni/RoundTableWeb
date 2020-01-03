@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
-namespace RoundTableERPDal
+using RoundTableDal.Models;
+using Dapper;
+using DapperExtensions;
+using Microsoft.Extensions.Options;
+using System.Configuration;
+using System.Data.SqlClient;
+namespace RoundTableDal
 {
-    using Dapper;
-    using DapperExtensions;
-    using Microsoft.Extensions.Options;
-    using RoundTableERPDal.Models;
-    using System.Configuration;
-    using System.Data.SqlClient;
+
+   
 
     /// <summary>
     /// Defines the <see cref="OMSContext" />

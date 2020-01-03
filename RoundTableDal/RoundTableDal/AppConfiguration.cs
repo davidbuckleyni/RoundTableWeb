@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.IO;
-namespace RoundTableERPDal
+namespace RoundTableDal
 {
 
 
