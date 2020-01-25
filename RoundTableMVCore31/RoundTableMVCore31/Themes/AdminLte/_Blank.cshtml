@@ -199,6 +199,49 @@
   <!-- AdminLTE App -->
   <script src="~/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
-  <script src="~/js/demo.js"></script>
+<script src="~/js/demo.js"></script>
+<script>
+  $(function () {
+    var cl = getCookie(".AspNetCore.Culture");
+    if (cl != "") {
+      var c = cl.split('|')[0].substring(2);
+      //console.log(c);
+
+      $("#lan-items a.active").removeClass("active");
+
+      //your code logic here
+
+      switch (c) {
+      case "fr":
+        var atag = $("#lan-items a.dropdown-item")[1];
+
+        $(atag).addClass("active");
+        break;
+
+      case "en":
+        var atag = $("#lan-items a.dropdown-item")[0];
+
+        $(atag).addClass("active");
+        break;
+      }
+    }
+  })
+
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+</script>
 </body>
 </html>

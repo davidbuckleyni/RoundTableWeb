@@ -19,8 +19,10 @@ namespace RoundTableMVCore31.Controllers
 
         {
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
-            // Culture contains the information of the requested culture
-            var culture = rqf.RequestCulture.Culture;
+           // Culture contains the information of the requested culture
+          var culture = rqf.RequestCulture.Culture;
+
+          bool isFound = _localizer["test"].ResourceNotFound;
 
             var test = _localizer["test"].Value;
             return View();

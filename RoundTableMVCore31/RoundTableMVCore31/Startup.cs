@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using RoundTableMVCore31.Data;
@@ -29,13 +30,12 @@ namespace RoundTableMVCore31
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
+
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-          //   options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
@@ -47,20 +47,13 @@ namespace RoundTableMVCore31
                 options.DefaultRequestCulture = new RequestCulture(culture: "en", uiCulture: "en");
                 options.SupportedCultures = supportedCultures;
                 options.SupportedUICultures = supportedCultures;
+                options.RequestCultureProviders = new List<IRequestCultureProvider>
+            {
+                new QueryStringRequestCultureProvider(),
+                new CookieRequestCultureProvider()
+            };
             });
-            //services.Configure<RequestLocalizationOptions>(options =>
-            //{
-            //    var supportedCultures = new[]
-            //    {
-            //        new CultureInfo("en"),
-            //        new CultureInfo("fr"),
-            //        new CultureInfo("de")
-            //    };
 
-            //    options.DefaultRequestCulture = new RequestCulture(culture: "en", uiCulture: "en");
-            //    options.SupportedUICultures = supportedCultures;
-            //    options.SupportedCultures = supportedCultures;
-            //});
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
@@ -80,18 +73,8 @@ namespace RoundTableMVCore31
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             var supportedCultures = new string[] { "en-GB", "fr-FR" };
-        
-            app.UseRequestLocalization(options =>
-                options
-                    .AddSupportedCultures(supportedCultures)
-                    .AddSupportedUICultures(supportedCultures)
-                    .SetDefaultCulture("en-gb")
-                    .RequestCultureProviders.Insert(0, new CustomRequestCultureProvider(context =>
-                    {
-                        return Task.FromResult(new ProviderCultureResult("en-gb"));
-                    }))
-            );
-        
+
+            app.UseRequestLocalization();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -116,13 +99,11 @@ namespace RoundTableMVCore31
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{culture=en-gb}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
 
 
             });
-
-          
         }
     }
 }
