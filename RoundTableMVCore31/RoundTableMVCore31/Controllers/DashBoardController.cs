@@ -14,37 +14,28 @@ namespace RoundTableMVCore31.Controllers
     {
         private readonly ILogger<DashBoardController> _logger;
         private readonly IStringLocalizer<DashBoardController> _localizer;
-        public IActionResult Index()
 
-
-        {
+        public IActionResult Index(){
             var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
-           // Culture contains the information of the requested culture
-          var culture = rqf.RequestCulture.Culture;
-
-          bool isFound = _localizer["test"].ResourceNotFound;
-
-            var test = _localizer["test"].Value;
+            // Culture contains the information of the requested culture
+            var culture = rqf.RequestCulture.Culture;
+            var isFound = _localizer["test"].ResourceNotFound;
             return View();
         }
-        public DashBoardController(ILogger<DashBoardController> logger, IStringLocalizer<DashBoardController> localizer)
-        {
+
+        public DashBoardController(ILogger<DashBoardController> logger, IStringLocalizer<DashBoardController> localizer){
             _localizer = localizer;
             _logger = logger;
-         
-
         }
 
-        public IActionResult SetLanguage(string culture, string returnUrl)
-        {
+        public IActionResult SetLanguage(string culture, string returnUrl){
             Response.Cookies.Append(
                 CookieRequestCultureProvider.DefaultCookieName,
                 CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+                new CookieOptions {Expires = DateTimeOffset.UtcNow.AddYears(1)}
             );
 
             return LocalRedirect(returnUrl);
         }
-     
     }
 }

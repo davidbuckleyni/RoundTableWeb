@@ -1,60 +1,97 @@
-﻿@using Kendo.Mvc.UI
+﻿@using DevExtreme.AspNet.Mvc
+
 @using RoundTableERPDal
 @using Microsoft.AspNetCore.Mvc.Localization
 @using RoundTableDal.Models
+@using GridEditMode = DevExtreme.AspNet.Mvc.GridEditMode
 
 @inject IViewLocalizer Localizer
-<span localize>
-    Whatever text you want to localize here.
-</span>
+ 
 @{
   
     
     Layout = "~/Themes/AdminLte/_Blank.cshtml";
 }
-test
-@(Html.Kendo().Grid<Stock>()
-        .Name("Grid")
+<div id="data-grid-demo">
+    @(Html.DevExtreme().DataGrid<RoundTableDal.Models.Stock>()
+        .ID("gridContainer")
+        .ShowBorders(true)
+        .Height(800)
+    
+        .FilterRow(filterRow => filterRow
+            .Visible(true)
+            .ApplyFilter(GridApplyFilterMode.Auto)
+        )
+
+        .SearchPanel(searchPanel => searchPanel
+            .Visible(true)
+            .Width(240)
+            .Placeholder("Search...")
+        )
+
+        .HeaderFilter(headerFilter => headerFilter.Visible(true))
+
+
+        .Editing(e => e.Mode(GridEditMode.Popup)
+            .AllowUpdating(true)
+            .Popup(p => p
+                .Title("Employee Info")
+                .ShowTitle(true)
+                .Width(700)
+                .Height(300)
+                .Position(pos => pos
+                    .My(HorizontalAlignment.Center, VerticalAlignment.Center)
+                    .At(HorizontalAlignment.Center, VerticalAlignment.Center)
+                    .Of(new JS("window"))
+                )
+            )
+            .Form(f => f.Items(items => {
+                items.AddGroup()
+                    .ColCount(2)
+                    .ColSpan(2)
+                    .Items(groupItems => {
+                        groupItems.AddSimpleFor(m => m.Name);
+                        groupItems.AddSimpleFor(m => m.Description);
+                        groupItems.AddSimpleFor(m => m.Barcode);
+                        groupItems.AddSimpleFor(m => m.StartDate);
+                        groupItems.AddSimpleFor(m => m.EndDate);
+                        groupItems.AddSimpleFor(m => m.IsFreeText)
+                             .ColSpan(2)
+                             .Editor(editor => editor.TextArea().Height(100));
+                    });
+            }))
+        )
         .Columns(columns =>
         {
-            columns.Bound(p => p.ID);
-            columns.Bound(p => p.Description).Width(180);
-            columns.Bound(p => p.Name).Width(180);
-            columns.Command(command => command.Edit()).Width(160);
-            columns.Command(command => command.Destroy()).Width(160);
+            columns.AddFor(m => m.StockCode)
+            .Width(100);
+            columns.AddFor(m => m.Name)
+                .Width(350);
+            columns.AddFor(m => m.Description)
+            .Width(350);
+            columns.AddFor(m => m.StartDate);
+
+            columns.AddFor(m => m.EndDate);
+
+
+
         })
+        
+        .Paging(paging => paging.PageSize(10))
+        .Pager(pager => {
+            pager.ShowPageSizeSelector(true);
+            pager.AllowedPageSizes(new[] { 100, 200, 1000 });
+            pager.ShowInfo(true);
+        })
+        .DataSource(d => d.Mvc()
+            .Controller("Stock")
+            .LoadAction("Get")
+            .UpdateAction("Put")
+            .Key("ID")
+        )
 
-    .ToolBar(toolbar =>
-     {
-         toolbar.Create();
-         toolbar.Save();
-     })
-    .Editable(editable => editable.Mode(GridEditMode.PopUp))
-    .Pageable()
-    .Navigatable()
-    .Sortable()
-    .Groupable()
-    .Filterable()
-    .Scrollable()
-    .HtmlAttributes(new { style = "height: 500px" })
-    .DataSource(dataSource => dataSource
-        .Ajax()
-        .PageSize(20)
-
-        .ServerOperation(false)
-        .Events(events => events.Error("error"))
-
-          .Model(model =>
-          {
-              model.Field(p => p.ID).Editable(true);
-              model.Field(p => p.Name);
-          })
-
-        .Read("ReadStock", "Stock")
-        .Update("Stock_Update", "Stock"))
-
-       )
     )
+</div>
 
 <script type="text/kendo-template" id="message">
     <div class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" style="margin: 0.5em; display: block; " data-for="#=field#" data-valmsg-for="#=field#" id="#=field#_validationMessage">

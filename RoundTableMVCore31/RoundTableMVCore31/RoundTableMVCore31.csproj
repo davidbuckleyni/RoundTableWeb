@@ -1,16 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
+<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-RoundTableMVCore31-9522802F-EA80-4B0E-84A9-C38BF2F4CE43</UserSecretsId>
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Remove="Resources\Resources.cs" />
   </ItemGroup>
-
-
   <ItemGroup>
+    <PackageReference Include="DevExpress.AspNetCore.Core" Version="19.2.6" />
     <PackageReference Include="Localization.AspNetCore.TagHelpers" Version="0.6.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
@@ -19,17 +16,13 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0" />
     <PackageReference Include="Microsoft.Extensions.Localization" Version="3.1.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
     <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2019.3.1023" />
   </ItemGroup>
-
-
   <ItemGroup>
     <ProjectReference Include="..\..\RoundTableCoreAPi\RoundTableCoreAPi.csproj" />
     <ProjectReference Include="..\..\RoundTableDal\RoundTableDal\RoundTableDal.csproj" />
   </ItemGroup>
-
-
   <ItemGroup>
     <EmbeddedResource Update="Resources\Controllers\StockController.en-GB.resx">
       <SubType>Designer</SubType>
@@ -49,10 +42,12 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Controllers\DashBoardController.en-GB.resx">
-      <Generator></Generator>
+      <Generator>
+      </Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Controllers\HomeController.fr-FR.resx">
-      <Generator></Generator>
+      <Generator>
+      </Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Controllers\HomeController.en-GB.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -61,11 +56,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
   </ItemGroup>
-
-
   <ItemGroup>
     <Folder Include="Attributes\" />
     <Folder Include="Helpers\" />
+    <PackageReference Include="DevExtreme.AspNet.Core" Version="19.2.6" />
+    <PackageReference Include="DevExtreme.AspNet.Data" Version="2.5.1" />
   </ItemGroup>
-
 </Project>

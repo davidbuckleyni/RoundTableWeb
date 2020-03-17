@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
@@ -54,7 +55,10 @@ namespace RoundTableMVCore31
             };
             });
 
-
+            services.AddMvc().AddRazorPagesOptions(o =>
+            {
+                o.Conventions.ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
+            });
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -62,10 +66,17 @@ namespace RoundTableMVCore31
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+ 
             services
                 .AddMvc()
+                
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
 
+            services.AddControllers().AddJsonOptions(jsonOptions =>
+                {
+                    jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
         }
 
@@ -99,7 +110,7 @@ namespace RoundTableMVCore31
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{culture=en-gb}/{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
 
 

@@ -8,27 +8,24 @@ using System.Threading.Tasks;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using Microsoft.AspNetCore.Http;
- 
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization; 
+using Microsoft.Extensions.Localization;
 using Newtonsoft.Json;
-
 using RoundTableERPDal;
-
-
- using System.Linq;
+using System.Linq;
+using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Mvc;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.CodeAnalysis;
 using RoundTableAPILib;
 using RoundTableDal.Models;
+using System.Linq;
 
 namespace RoundTableERP.Controllers
 {
-
     public class StockController : Controller
     {
-
         private readonly IStringLocalizer<StockController> _localizer;
 
         RoundTableAPIClient apiClient = new RoundTableAPIClient();
@@ -48,15 +45,12 @@ namespace RoundTableERP.Controllers
         public StockController(IStringLocalizer<StockController> localizer)
         {
             _localizer = localizer;
-
-
         }
 
         public IActionResult Index()
         {
             var testCulture = CultureInfo.CurrentCulture.Name;
 
-          
 
             return View();
         }
@@ -75,14 +69,14 @@ namespace RoundTableERP.Controllers
             return View();
         }
 
-
-        public async Task<IActionResult> ReadStock([DataSourceRequest] DataSourceRequest request)
+        [HttpGet]
+        public async Task<object> Get(DataSourceLoadOptions loadOptions)
         {
             List<Stock> _result = new List<Stock>();
-            _result = await apiClient.GetStockFromApi();
-            return Json(_result.ToDataSourceResult(request));
+            _result =  await apiClient.GetStockFromApi();
+            return DataSourceLoader.Load(_result, loadOptions);
         }
-
+    
 
         [AcceptVerbs("Post")]
         public async Task<ActionResult> Stock_Update([DataSourceRequest] DataSourceRequest request, Stock stockItem)
@@ -94,7 +88,16 @@ namespace RoundTableERP.Controllers
 
             return Json(new[] {stockItem}.ToDataSourceResult(request, ModelState));
         }
+        [HttpPut]
+        public async  Task<IActionResult> Put(int key, string values )
+        {
+             var stockItem =  apiClient.GetStockFromApi().Result.First(s=>s.ID==key);
+            JsonConvert.PopulateObject(values, stockItem);
 
+            await apiClient.PostUpdateStock(stockItem);
+            return Ok(stockItem);
+
+        }
         // POST: SalesOrder/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -111,9 +114,5 @@ namespace RoundTableERP.Controllers
                 return View();
             }
         }
-
-
-
     }
-
 }

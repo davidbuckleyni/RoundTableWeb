@@ -1,0 +1,23 @@
+﻿@model RoundTableDal.Models.Stock
+@using Kendo.Mvc.UI
+<div class="k-edit-form-container">
+    <h3>Customized Stock Edit</h3>
+    <br />
+    @Html.HiddenFor(model => model.ID)
+
+    <div class="k-edit-label">
+        @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="k-edit-field">
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="k-edit-label">
+        @Html.LabelFor(model => model.StartDate)
+    </div>
+    <div class="k-edit-field">
+        @Html.Kendo().DateTimePickerFor(model => model.EndDate)
+        @Html.ValidationMessageFor(model => model.EndDate)
+    </div>
+</div>

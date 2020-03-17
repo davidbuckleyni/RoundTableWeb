@@ -8,7 +8,7 @@ namespace RoundTableCore
     {
        
 
-        public const string BaseApiUrl = "http://localhost:82/api/";
+        public const string BaseApiUrl = "http://127.0.0.1:82/api/";
 
         public const string GetALlStock = BaseApiUrl + "stock/";
 
