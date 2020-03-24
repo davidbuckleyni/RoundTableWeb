@@ -17,14 +17,42 @@ using Newtonsoft.Json.Serialization;
 using RoundTableERPDal;
 using Newtonsoft.Json;
 using RoundTableDal;
+using Microsoft.Owin.Security.OAuth;
+using Microsoft.Owin;
+using Microsoft.AspNet.Identity.Owin;
+using Owin;
+using RoundTableWeb.Api.Security;
 
 namespace RoundTableWeb.Api
 {
     public class Startup
     {
+        public static OAuthAuthorizationServerOptions OAuthOptions { get; private set; }
+
+        public static string PublicClientId { get; private set; }
+
+
+        public void ConfigureOAuth(IAppBuilder app)
+        {
+            OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
+            {
+                AllowInsecureHttp = true,
+                TokenEndpointPath = new PathString("/token"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                Provider = new RoundTableAuthorizationServerProvider()
+            };
+
+            // Token Generation
+            app.UseOAuthAuthorizationServer(OAuthServerOptions);
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+
+        }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            
+
         }
 
         public IConfiguration Configuration { get; }
@@ -70,6 +98,8 @@ namespace RoundTableWeb.Api
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
             app.UseRouting();
+            // Enable the application to use bearer tokens to authenticate users
+            ConfigureOAuth(app);
 
             app.UseAuthorization();
 

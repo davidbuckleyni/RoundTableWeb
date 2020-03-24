@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RoundTableWMS.Views.WorksOrder">
+    <ContentPage.Content>
+        <StackLayout>
+            <telerikInput:RadEntry x:Name="txtCustomerAccountNo" WatermarkText="Please enter Customer Account No" WatermarkTextColor="Black" />
+        <telerikInput:RadButton x:Name="btnSearchWorkOrders" Text="Search Work Orders" />
+        <telerikGrid:RadDataGrid x:Name="dgWorksOrder" ItemsSource="{Binding Source}" AutoGenerateColumns="False" >
+            <telerikGrid:RadDataGrid.Columns>
+                <telerikGrid:DataGridTextColumn PropertyName="WorksOrderNumber" SizeMode="Fixed"/>
+                <telerikGrid:DataGridTextColumn PropertyName="Description" SizeMode="Fixed"/>
+                <telerikGrid:DataGridDateColumn PropertyName="DateDue" SizeMode="Fixed"/>
+
+            </telerikGrid:RadDataGrid.Columns>
+        </telerikGrid:RadDataGrid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -21,7 +21,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\RoundTableCoreAPi\RoundTableCoreAPi.csproj" />
-    <ProjectReference Include="..\..\RoundTableDal\RoundTableDal\RoundTableDal.csproj" />
+    <ProjectReference Include="..\..\RoundTableDalS\RoundTableDalS\RoundTableDal.csproj" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\Controllers\StockController.en-GB.resx">
@@ -59,6 +59,7 @@
   <ItemGroup>
     <Folder Include="Attributes\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Views\WorksOrders\" />
     <PackageReference Include="DevExtreme.AspNet.Core" Version="19.2.6" />
     <PackageReference Include="DevExtreme.AspNet.Data" Version="2.5.1" />
   </ItemGroup>

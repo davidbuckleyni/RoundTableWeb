@@ -10,8 +10,6 @@ using Newtonsoft.Json;
 using RoundTableAPILib.Models;
 using RoundTableCore;
 using RoundTableDal.Models;
-using RoundTableERPDal;
-
 
 namespace RoundTableAPILib
 {
@@ -61,6 +59,24 @@ namespace RoundTableAPILib
 
 
 
+        }
+
+        public async Task<List<WorksOrder>> GetWorksOrder()
+        {
+            List<WorksOrder> _result = new List<WorksOrder>();
+
+            var uri = new Uri(string.Format(Constants.GetALlStock, string.Empty));
+
+            var response = await _httpClient.GetAsync(uri);
+            if (response.IsSuccessStatusCode)
+            {
+                var byteArray = await response.Content.ReadAsByteArrayAsync();
+
+                var content = Encoding.UTF8.GetString(byteArray, 0, byteArray.Length);
+                _result = JsonConvert.DeserializeObject<List<WorksOrder>>(content);
+            }
+
+            return _result.ToList();
         }
 
         /// <summary>

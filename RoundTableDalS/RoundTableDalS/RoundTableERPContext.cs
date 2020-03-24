@@ -60,8 +60,9 @@ namespace RoundTableDal
             }
         }
         
-        public List<WorksOrder> GetWorksOrderNumberByAccountNumber(string customerAccountNumber)
+        public List<WorksOrder> GetWorksOrdersByAccountNumber()
         {
+            string customerAccountNumber = "";
             using (var connection = new SqlConnection(constr))
             {
                 return connection.Query<WorksOrder>($"SELECT * FROM {schemaDefination}.[WorksOrder] where WorksOrderNumber=@customerAccountNumber",
@@ -85,7 +86,7 @@ namespace RoundTableDal
                     new {BarCode = barCode}).FirstOrDefault();
             }
         }
-
+        
 
         public Stock GetSingleItemByStockCode(string stockCode)
         {
@@ -151,12 +152,21 @@ namespace RoundTableDal
             }
         }
 
+        public List<Stock> GetStockByBarCode()
+        {
+            List<Stock> results = new List<Stock>();
+            using (var connection = new SqlConnection(constr))
+            {
+                return connection.Query<Stock>($"SELECT * FROM {schemaDefination}.[STOCK]").ToList();
+            }
+        }
+
         public List<Stock> GetAlLStock()
         {
             List<Stock> results = new List<Stock>();
             using (var connection = new SqlConnection(constr))
             {
-                return connection.Query<Stock>("SELECT * FROM {schemaDefination}.[STOCK]").ToList();
+                return connection.Query<Stock>($"SELECT * FROM {schemaDefination}.[STOCK]").ToList();
             }
         }
 

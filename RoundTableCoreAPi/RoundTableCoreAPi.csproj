@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RoundTableDal\RoundTableDal\RoundTableDal.csproj" />
+    <ProjectReference Include="..\RoundTableDalS\RoundTableDalS\RoundTableDal.csproj" />
   </ItemGroup>
 
 </Project>
