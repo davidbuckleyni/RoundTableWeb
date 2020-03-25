@@ -25,6 +25,7 @@
   <ItemGroup>
     <Folder Include="Functions\" />
     <Folder Include="Interface\" />
+    <Folder Include="Security\" />
   </ItemGroup>
 
   <ItemGroup>

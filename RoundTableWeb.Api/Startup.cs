@@ -21,7 +21,7 @@ using Microsoft.Owin.Security.OAuth;
 using Microsoft.Owin;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
-using RoundTableWeb.Api.Security;
+
 
 namespace RoundTableWeb.Api
 {
@@ -32,21 +32,7 @@ namespace RoundTableWeb.Api
         public static string PublicClientId { get; private set; }
 
 
-        public void ConfigureOAuth(IAppBuilder app)
-        {
-            OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
-            {
-                AllowInsecureHttp = true,
-                TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new RoundTableAuthorizationServerProvider()
-            };
-
-            // Token Generation
-            app.UseOAuthAuthorizationServer(OAuthServerOptions);
-            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
-
-        }
+     
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -99,7 +85,7 @@ namespace RoundTableWeb.Api
             });
             app.UseRouting();
             // Enable the application to use bearer tokens to authenticate users
-            ConfigureOAuth(app);
+          
 
             app.UseAuthorization();
 
