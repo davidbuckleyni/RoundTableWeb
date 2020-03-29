@@ -6,21 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using RoundTableDal;
-using RoundTableAPILib;
 
-namespace RoundTableWMS.Views
+namespace RoundTableWMS.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class WorksOrder : ContentPage
+    public partial class FlyoutHeader : ContentView
     {
-        RoundTableAPIClient api = new RoundTableAPIClient();
-        public WorksOrder()
+        public FlyoutHeader()
         {
             InitializeComponent();
-           
         }
-
-        
     }
 }

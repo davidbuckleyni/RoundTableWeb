@@ -12,7 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
+
 using Newtonsoft.Json.Serialization;
 using RoundTableERPDal;
 using Newtonsoft.Json;
@@ -54,11 +54,7 @@ namespace RoundTableWeb.Api
                 // Assume this is an "external" service which requires an API KEY
                 c.BaseAddress = new Uri("https://localhost:5001/");
             });
-            services.AddSwaggerGen(c =>
-
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api For RoundTable A Complete ERP for warehouse managment", Version = "v1" });
-            });
+          
 
             services
                 .AddControllersWithViews()
@@ -78,11 +74,7 @@ namespace RoundTableWeb.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            });
+       
             app.UseRouting();
             // Enable the application to use bearer tokens to authenticate users
           

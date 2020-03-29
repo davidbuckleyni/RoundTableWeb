@@ -6,17 +6,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="Dapper.Contrib" Version="2.0.30" />
     <PackageReference Include="Telerik.UI.for.Xamarin" Version="2019.2.619.1" />
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.379-pre1" />  
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />  
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="3.0.0-beta5" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\RoundTableDalS\RoundTableDalS\RoundTableDal.csproj" />
+    <ProjectReference Include="..\..\..\RoundTableModels\RoundTableModels\RoundTableAPIStandard.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Controls\FlyoutHeader.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Orders.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

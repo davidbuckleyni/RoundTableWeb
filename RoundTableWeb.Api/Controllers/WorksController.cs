@@ -9,8 +9,9 @@ using RoundTableDal.Models;
 
 namespace RoundTableWeb.Api.Controllers
 {
-    [Route("api/[controller]")]
+
     [ApiController]
+    [Route("[controller]")]
     public class WorksController : ControllerBase
     {
         RoundTableERPContext db = new RoundTableERPContext();
@@ -18,14 +19,14 @@ namespace RoundTableWeb.Api.Controllers
         // GET: api/Works
         public IEnumerable<WorksOrder> Get()
         {
-            return db.GetWorksOrdersByAccountNumber();
+            return db.GetAllActiveWorksOrders();
         }
 
         // GET: api/Works/5
         [HttpGet("{id}", Name = "GetWorksOrdersById")]
-        public string GetWorksOrdersById(int id)
+        public WorksOrder GetWorksOrdersById(string id)
         {
-            return "value";
+            return db.GetWorksOrdersByWorkdsOrderNumber(id);
         }
 
         // POST: api/Works
@@ -36,8 +37,10 @@ namespace RoundTableWeb.Api.Controllers
 
         // PUT: api/Works/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(string id, [FromBody] string value)
         {
+            db.DeleteWorksOrder(id);
+            db.DeleteWorksOrderLine(id);
         }
 
 

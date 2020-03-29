@@ -3,10 +3,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using RoundTableDal.Models;
 using Dapper;
-using DapperExtensions;
+
 using Microsoft.Extensions.Options;
 using System.Configuration;
 using System.Data.SqlClient;
+using Dapper.Contrib.Extensions;
 
 namespace RoundTableDal
 {
@@ -50,7 +51,26 @@ namespace RoundTableDal
 
             Jobs = 2
         }
+        public void DeleteWorksOrder(string worksOrderNumber)
+        {
+            string customerAccountNumber = "";
+            using (var connection = new SqlConnection(constr))
+            {
+                var sqlStatment = $"delete from {schemaDefination}.[WorksOrder] where WorksOrderNumber=@worksOrderNumber";
+                connection.Execute(sqlStatment, new { WorksOrderNumber = worksOrderNumber });            
+                   
+            }
+        }
 
+        public void DeleteWorksOrderLine(string worksOrderNumber)
+        {
+            string customerAccountNumber = "";
+            using (var connection = new SqlConnection(constr))
+            {
+               var sqlStatment= "delete from {schemaDefination}.[WorksOrderLine] where WorksOrderNumber=@worksOrderNumber";                  
+               connection.Execute(sqlStatment, new { WorksOrderNumber = worksOrderNumber });
+            }
+        }
         public void UpdateWorkOrder(WorksOrder workOrder)
         {
             using (var connection = new SqlConnection(constr))
@@ -59,25 +79,24 @@ namespace RoundTableDal
                 connection.UpdateAsync(workOrder);
             }
         }
-        
-        public List<WorksOrder> GetWorksOrdersByAccountNumber()
+        public List<WorksOrder> GetAllActiveWorksOrders()
+        {
+            using (var connection = new SqlConnection(constr))
+            {
+                return connection.Query<WorksOrder>($"SELECT * FROM {schemaDefination}.[WorksOrder] where isActive=1 and isDeleted!=1").ToList();
+            }
+        }
+
+        public WorksOrder GetWorksOrdersByWorkdsOrderNumber(string worksOrderNumber)
         {
             string customerAccountNumber = "";
             using (var connection = new SqlConnection(constr))
             {
-                return connection.Query<WorksOrder>($"SELECT * FROM {schemaDefination}.[WorksOrder] where WorksOrderNumber=@customerAccountNumber",
-                    new { WorksOrderNumber = customerAccountNumber }).ToList();
-            }
-        }
-        public WorksOrder GetWorksOrderByWorkOrderNumber(string worksOrderNumber)
-        {
-            using (var connection = new SqlConnection(constr))
-            {
-                return connection.Query<WorksOrder>($"SELECT * FROM {schemaDefination}.[WorksOrder] where WorksOrderNumber=@WorksOrderNumber",
+                return connection.Query<WorksOrder>($"SELECT * FROM {schemaDefination}.[WorksOrder] where WorksOrderNumber=@worksOrderNumber",
                     new { WorksOrderNumber = worksOrderNumber }).FirstOrDefault();
             }
         }
-
+ 
         public Stock GetSingleItemByBarCode(string barCode)
         {
             using (var connection = new SqlConnection(constr))

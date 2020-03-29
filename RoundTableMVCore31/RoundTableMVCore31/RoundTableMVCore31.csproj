@@ -20,7 +20,6 @@
     <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2019.3.1023" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\RoundTableCoreAPi\RoundTableCoreAPi.csproj" />
     <ProjectReference Include="..\..\RoundTableDalS\RoundTableDalS\RoundTableDal.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -59,7 +58,6 @@
   <ItemGroup>
     <Folder Include="Attributes\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Views\WorksOrders\" />
     <PackageReference Include="DevExtreme.AspNet.Core" Version="19.2.6" />
     <PackageReference Include="DevExtreme.AspNet.Data" Version="2.5.1" />
   </ItemGroup>
