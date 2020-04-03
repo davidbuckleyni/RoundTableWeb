@@ -35,7 +35,7 @@
         .Editing(e => e.Mode(GridEditMode.Popup)
             .AllowUpdating(true)
             .Popup(p => p
-                .Title("Employee Info")
+                .Title("Stock")
                 .ShowTitle(true)
                 .Width(700)
                 .Height(300)
@@ -86,7 +86,7 @@
         .DataSource(d => d.Mvc()
             .Controller("Stock")
             .LoadAction("Get")
-            .UpdateAction("Put")
+            .UpdateAction("Stock_Update")
             .Key("ID")
         )
 

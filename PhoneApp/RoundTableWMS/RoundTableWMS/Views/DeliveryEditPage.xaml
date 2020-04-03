@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+     xmlns:controls="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms" 
+         
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RoundTableWMS.Views.DeliveryEditPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+
+
+
+            <Switch IsToggled="false" />
+
+            <Label Text="Start Date"
+            
+               HorizontalTextAlignment="Start" />
+            <DatePicker x:Name="rdDaatePicker"   />
+            <Label Text="End Date"
+            
+               HorizontalTextAlignment="Start" />
+            <DatePicker x:Name="rdEndDate" />
+
+            <Label x:Name="lblSign" Text="Customer Signature">
+            </Label>
+            <controls:SignaturePadView
+	x:Name="signatureView"
+                HeightRequest="400"
+	StrokeWidth="3"
+	StrokeColor="Black"
+	BackgroundColor="white" />
+            <Picker x:Name="picker"
+        Title="Select a Work Order Status"
+        TitleColor="Red">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}" >
+                        <x:String>Closed</x:String>
+                        <x:String>Completed</x:String>
+                        <x:String>On Hold</x:String>
+                        <x:String>Awaiting Part</x:String>
+                        <x:String>Customer Not Present</x:String>
+
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

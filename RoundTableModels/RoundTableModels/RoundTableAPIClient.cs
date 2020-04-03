@@ -20,12 +20,28 @@ namespace RoundTableAPILib
 
         private readonly HttpClient _httpClient;
         private readonly string _remoteServiceBaseUrl;
+        public string ApiUrl { get; set; }
+
+        public device DeveiceType { get; set; }
+        public enum device 
+        {
+            Desktop = 1,
+            Phone =2            
+
+        }
+
 
         List<ErrorObject> errors = new List<ErrorObject>();
+
 
         public RoundTableAPIClient()
         {
             _httpClient = new HttpClient();
+
+            if (DeveiceType == device.Desktop)
+                ApiUrl = Constants.deskTopApiUrl;
+            else
+                ApiUrl = Constants.BuildUrl();
 
         }
 
@@ -36,8 +52,8 @@ namespace RoundTableAPILib
 
         }
 
-      
 
+     
         /// <summary>
         /// Posts the update settings.
         /// </summary>
@@ -46,7 +62,7 @@ namespace RoundTableAPILib
         public async Task<int> PostUpdateStock(Stock _stock)
         {
 
-            var uri = new Uri(string.Format(  Constants.UpdateStock, string.Empty));
+            var uri = new Uri(string.Format(ApiUrl + Constants.UpdateStock, string.Empty));
 
 
             var json = JsonConvert.SerializeObject(_stock);
@@ -61,11 +77,11 @@ namespace RoundTableAPILib
 
         }
 
-        public async Task<List<WorksOrder>> GetWorksOrder()
+        public async Task<List<WorksOrderModel>> GetAllWorksOrder(string ApiUrl)
         {
-            List<WorksOrder> _result = new List<WorksOrder>();
-
-            var uri = new Uri(string.Format(Constants.GetALlStock, string.Empty));
+            List<WorksOrderModel> _result = new List<WorksOrderModel>();
+            var test = Constants.GetAllWorksOrders;
+            var uri = new Uri(string.Format(ApiUrl + Constants.GetAllWorksOrders, string.Empty));
 
             var response = await _httpClient.GetAsync(uri);
             if (response.IsSuccessStatusCode)
@@ -73,7 +89,7 @@ namespace RoundTableAPILib
                 var byteArray = await response.Content.ReadAsByteArrayAsync();
 
                 var content = Encoding.UTF8.GetString(byteArray, 0, byteArray.Length);
-                _result = JsonConvert.DeserializeObject<List<WorksOrder>>(content);
+                _result = JsonConvert.DeserializeObject<List<WorksOrderModel>>(content);
             }
 
             return _result.ToList();
@@ -86,7 +102,7 @@ namespace RoundTableAPILib
         public async Task<List<Stock>> GetStockFromApi(){
             List<Stock> _result = new List<Stock>();
 
-            var uri = new Uri(string.Format(Constants.GetALlStock, string.Empty));
+            var uri = new Uri(string.Format(ApiUrl +  Constants.GetALlStock, string.Empty));
 
             var response = await _httpClient.GetAsync(uri);
             if (response.IsSuccessStatusCode)

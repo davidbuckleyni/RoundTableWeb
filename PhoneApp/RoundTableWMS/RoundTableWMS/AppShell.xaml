@@ -61,18 +61,22 @@
         <controls:FlyoutHeader />
     </Shell.FlyoutHeader>
     <FlyoutItem Route="animals"
-                Title="Animals"
+                Title="Round Table Wms"
                 FlyoutDisplayOptions="AsMultipleItems">
         <Tab Title="Domestic"
              Route="domestic"
              Icon="paw.png">
-            <ShellContent Route="cats"
-                          Style="{StaticResource DomesticShell}"
+            <ShellContent  
+                          Title="Works Order"
+                          Icon="cat.png"
+                          ContentTemplate="{DataTemplate local:SalesOrder}" />                                
+                
+            
+            <ShellContent  
                           Title="Works Order"
                           Icon="cat.png"
                           ContentTemplate="{DataTemplate local:WorksOrder}" />
-            <ShellContent Route="dogs"
-                          Style="{StaticResource DomesticShell}"
+            <ShellContent Route="dogs"                       
                           Title="About"
                           Icon="dog.png"
                           ContentTemplate="{DataTemplate local:AboutPage}" />
@@ -89,12 +93,16 @@
         this code is valid and does build.
                
         -->
-        <ShellContent Route="monkeys"
-                      Style="{StaticResource MonkeysShell}"
-                      Title="Work Orders"
+        <ShellContent Route="monkeys"                     
+                      Title="Delliverys"                     
+                      ContentTemplate="{DataTemplate local:DeliveryPage}" />
+
+        <ShellContent Route="monkeys"                     
+                      Title="Delliverys"
                      
                       ContentTemplate="{DataTemplate local:WorksOrder}" />
-            </FlyoutItem>
+
+    </FlyoutItem>
 
     <ShellContent Route="about"
                   Style="{StaticResource AboutShell}"

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RoundTableWMS.Views.LoginPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Vertical" Spacing="10">
+                <Entry x:Name="txtUserName" Text="{Binding Email}" Placeholder="Please enter user name."   
+                           PlaceholderColor="Black" HeightRequest="40"                                
+                           TextColor="Black"/>
+                <Entry x:Name="txtPassword" Text="{Binding Password}" Placeholder="Please enter password."   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="Black"/>
+            </StackLayout>
+             <telerikInput:RadButton x:Name="btnSignIn" Text="Sign In" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

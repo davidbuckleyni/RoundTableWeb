@@ -20,6 +20,7 @@ namespace RoundTableWeb.Api.Controllers
 
         // GET: api/Stock
         [HttpGet]
+        [ApiKey]
         public IEnumerable<RoundTableDal.Models.Stock> Get()
         {
             return db.GetAlLStock();

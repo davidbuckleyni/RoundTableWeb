@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
-using System.Reflection;
-using System.Resources;
 using System.Threading.Tasks;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
@@ -11,17 +8,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Newtonsoft.Json;
- 
+
 using System.Linq;
 using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Mvc;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.CodeAnalysis;
 using RoundTableAPILib;
- 
-using System.Linq;
 using RoundTableDal.Models;
+using static RoundTableAPILib.RoundTableAPIClient;
 
 namespace RoundTableERP.Controllers
 {
@@ -74,6 +68,7 @@ namespace RoundTableERP.Controllers
         public async Task<object> Get(DataSourceLoadOptions loadOptions)
         {
             List<Stock> _result = new List<Stock>();
+            apiClient.DeveiceType = device.Desktop;
             _result =  await apiClient.GetStockFromApi();
             return DataSourceLoader.Load(_result, loadOptions);
         }
@@ -89,7 +84,9 @@ namespace RoundTableERP.Controllers
 
             return Json(new[] {stockItem}.ToDataSourceResult(request, ModelState));
         }
-        [HttpPut]
+ 
+
+            [HttpPut]
         public async  Task<IActionResult> Put(int key, string values )
         {
              var stockItem =  apiClient.GetStockFromApi().Result.First(s=>s.ID==key);

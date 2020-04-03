@@ -11,14 +11,28 @@ xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.
         <StackLayout>
             <telerikInput:RadEntry x:Name="txtCustomerAccountNo" WatermarkText="Please enter Customer Account No" WatermarkTextColor="Black" />
         <telerikInput:RadButton x:Name="btnSearchWorkOrders" Text="Search Work Orders" />
-        <telerikGrid:RadDataGrid x:Name="dgWorksOrder" ItemsSource="{Binding Source}" AutoGenerateColumns="False" >
+        <telerikGrid:RadDataGrid x:Name="grdWorksOrders"  SelectionMode="Single"  SelectionChanged="grdWorksOrders_SelectionChanged"  ItemsSource="{Binding Source}" AutoGenerateColumns="False" >
             <telerikGrid:RadDataGrid.Columns>
-                <telerikGrid:DataGridTextColumn PropertyName="WorksOrderNumber" SizeMode="Fixed"/>
-                <telerikGrid:DataGridTextColumn PropertyName="Description" SizeMode="Fixed"/>
-                <telerikGrid:DataGridDateColumn PropertyName="DateDue" SizeMode="Fixed"/>
-
-            </telerikGrid:RadDataGrid.Columns>
+                <telerikGrid:DataGridTextColumn  PropertyName="WorksOrderNumber" SizeMode="Auto"/>
+                    <telerikGrid:DataGridTextColumn PropertyName="Description" SizeMode="Auto"/>
+                    <telerikGrid:DataGridDateColumn PropertyName="DateDue" SizeMode="Auto"/>
+                      <telerikGrid:DataGridBooleanColumn PropertyName="isActive" 
+                                    HeaderText="Active?" SizeMode="Auto">
+                        <telerikGrid:DataGridBooleanColumn.CellContentStyle>
+                            <telerikGrid:DataGridTextCellStyle TextColor="Green" 
+                                            FontSize="18" 
+                                            SelectedTextColor="Blue" />
+                        </telerikGrid:DataGridBooleanColumn.CellContentStyle>
+                    </telerikGrid:DataGridBooleanColumn>
+                </telerikGrid:RadDataGrid.Columns>
         </telerikGrid:RadDataGrid>
+
+            <StackLayout x:Name="messageDisplay"
+
+                     HorizontalOptions="Center"
+
+                     VerticalOptions="Start" />
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

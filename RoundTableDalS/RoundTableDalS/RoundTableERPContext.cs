@@ -8,6 +8,8 @@ using Microsoft.Extensions.Options;
 using System.Configuration;
 using System.Data.SqlClient;
 using Dapper.Contrib.Extensions;
+using System;
+using RoundTableAPIStandard.Models;
 
 namespace RoundTableDal
 {
@@ -71,7 +73,7 @@ namespace RoundTableDal
                connection.Execute(sqlStatment, new { WorksOrderNumber = worksOrderNumber });
             }
         }
-        public void UpdateWorkOrder(WorksOrder workOrder)
+        public void UpdateWorkOrder(WorksOrderModel workOrder)
         {
             using (var connection = new SqlConnection(constr))
             {
@@ -79,20 +81,20 @@ namespace RoundTableDal
                 connection.UpdateAsync(workOrder);
             }
         }
-        public List<WorksOrder> GetAllActiveWorksOrders()
+        public List<WorksOrderModel> GetAllActiveWorksOrders()
         {
             using (var connection = new SqlConnection(constr))
             {
-                return connection.Query<WorksOrder>($"SELECT * FROM {schemaDefination}.[WorksOrder] where isActive=1 and isDeleted!=1").ToList();
+                return connection.Query<WorksOrderModel>($"SELECT * FROM {schemaDefination}.[WorksOrder] where isActive=1 and isDeleted!=1").ToList();
             }
         }
 
-        public WorksOrder GetWorksOrdersByWorkdsOrderNumber(string worksOrderNumber)
+        public WorksOrderModel GetWorksOrdersByWorkdsOrderNumber(string worksOrderNumber)
         {
             string customerAccountNumber = "";
             using (var connection = new SqlConnection(constr))
             {
-                return connection.Query<WorksOrder>($"SELECT * FROM {schemaDefination}.[WorksOrder] where WorksOrderNumber=@worksOrderNumber",
+                return connection.Query<WorksOrderModel>($"SELECT * FROM {schemaDefination}.[WorksOrder] where WorksOrderNumber=@worksOrderNumber",
                     new { WorksOrderNumber = worksOrderNumber }).FirstOrDefault();
             }
         }
@@ -113,6 +115,14 @@ namespace RoundTableDal
             {
                 return connection.Query<Stock>($"SELECT * FROM {schemaDefination}.[STOCK] where StockCode=@StockCode",
                     new {StockCode = stockCode}).FirstOrDefault();
+            }
+        }
+        public List<Locations> GetAllDeliveres()
+        {
+            List<Locations> results = new List<Locations>();
+            using (var connection = new SqlConnection(constr))
+            {
+                return connection.Query<Locations>($"SELECT * FROM {schemaDefination}.[Delivery] where isActive=true and isDeleted=false").ToList();
             }
         }
 
@@ -179,7 +189,17 @@ namespace RoundTableDal
                 return connection.Query<Stock>($"SELECT * FROM {schemaDefination}.[STOCK]").ToList();
             }
         }
+        public bool FindKeysByClientIdByApiKey(Guid apiKey, Guid clientId)
+        {
+           ApiKeys results = new ApiKeys();
+            using (var connection = new SqlConnection(constr))
+            {
+                return connection.Query<ApiKeys>($"SELECT * FROM {schemaDefination}.[ApiKeys] where ClientId= @ClientId and ApiKey=@ApiKey and isActive=1 and isDeleted!=1",
+                  new { ApiKey = apiKey, ClientId = clientId }).Any();
 
+
+            }
+        }
         public List<Stock> GetAlLStock()
         {
             List<Stock> results = new List<Stock>();

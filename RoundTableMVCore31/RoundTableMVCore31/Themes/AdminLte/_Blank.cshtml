@@ -64,6 +64,20 @@
 </head>
 
 <body class="hold-transition sidebar-mini">
+
+  @if (User.Identity.IsAuthenticated)
+  {
+    <p class="navbar-text">Hello, @User.Identity.Name</p>
+  }
+   
+  else
+  {
+<ul class="nav navbar-nav navbar-right">
+  @Html.ActionLink("Sign In", "SignIn", "Account", new object { }, new { @class = "btn btn-lg btn-success" })
+  
+</ul>
+  }
+  
   <!-- Site wrapper -->
   <div class="wrapper">
     <!-- Navbar -->
@@ -80,16 +94,16 @@
           <a href="#" class="nav-link">Contact</a>
         </li>
       </ul>
-      
-      
+
+
       <!-- SEARCH FORM -->
       <form class="form-inline ml-3">
         <!--   @Html.Partial("_SelectLanguagePartial.cshtml")-->
         @await Html.PartialAsync("_SelectLanguagePartial")
 
 
-        
-   
+
+
         <div class="input-group input-group-sm">
           <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -197,35 +211,35 @@
     <!-- /.navbar -->
     <!-- Main Sidebar Container -->
     @Html.Partial("_LeftMenu.cshtml")
- 
+
     <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Blank Page</h1>
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Blank Page</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Blank Page</li>
+              </ol>
+            </div>
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
+        </div><!-- /.container-fluid -->
+      </section>
 
-    @RenderBody() 
-    
-    <partial name="_CookieConsentPartial" />
+      @RenderBody()
+
+      <partial name="_CookieConsentPartial" />
 
 
-  </div>
+    </div>
     <!-- /.content-wrapper -->
     @Html.Partial("_Footer.cshtml")
-    
+
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -235,55 +249,54 @@
   </div>
   <!-- ./wrapper -->
   <!-- jQuery -->
-
   <!-- Bootstrap 4 -->
   <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="~/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
-<script src="~/js/demo.js"></script>
-<script>
-  $(function () {
-    var cl = getCookie(".AspNetCore.Culture");
-    if (cl != "") {
-      var c = cl.split('|')[0].substring(2);
-      //console.log(c);
+  <script src="~/js/demo.js"></script>
+  <script>
+    $(function () {
+      var cl = getCookie(".AspNetCore.Culture");
+      if (cl != "") {
+        var c = cl.split('|')[0].substring(2);
+        //console.log(c);
 
-      $("#lan-items a.active").removeClass("active");
+        $("#lan-items a.active").removeClass("active");
 
-      //your code logic here
+        //your code logic here
 
-      switch (c) {
-      case "fr":
-        var atag = $("#lan-items a.dropdown-item")[1];
+        switch (c) {
+          case "fr":
+            var atag = $("#lan-items a.dropdown-item")[1];
 
-        $(atag).addClass("active");
-        break;
+            $(atag).addClass("active");
+            break;
 
-      case "en":
-        var atag = $("#lan-items a.dropdown-item")[0];
+          case "en":
+            var atag = $("#lan-items a.dropdown-item")[0];
 
-        $(atag).addClass("active");
-        break;
+            $(atag).addClass("active");
+            break;
+        }
       }
+    })
+
+    function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
     }
-  })
-
-  function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
-</script>
+  </script>
 </body>
 </html>

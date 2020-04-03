@@ -19,6 +19,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Okta.AspNetCore;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 
 namespace RoundTableMVCore31
 {
@@ -64,6 +67,21 @@ namespace RoundTableMVCore31
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+            })
+    .AddCookie()
+        .AddOktaMvc(new OktaMvcOptions
+        {
+            // Replace these values with your Okta configuration
+            OktaDomain = Configuration.GetValue<string>("Okta:OktaDomain"),
+            ClientId = "0oa536oqbVsXlIsaS4x6",
+            ClientSecret = "JLCLr7hjewO3B7QMiiaQHPbe-sYAo7ULRfWEoFWr"
+        });
+   
+             
             services.AddControllersWithViews();
             services.AddRazorPages();
  
@@ -97,6 +115,7 @@ namespace RoundTableMVCore31
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
@@ -104,7 +123,9 @@ namespace RoundTableMVCore31
             app.UseRouting();
 
             app.UseAuthentication();
+
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {

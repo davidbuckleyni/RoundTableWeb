@@ -17,14 +17,14 @@ namespace RoundTableWeb.Api.Controllers
         RoundTableERPContext db = new RoundTableERPContext();
 
         // GET: api/Works
-        public IEnumerable<WorksOrder> Get()
+        public IEnumerable<WorksOrderModel> Get()
         {
             return db.GetAllActiveWorksOrders();
         }
 
         // GET: api/Works/5
         [HttpGet("{id}", Name = "GetWorksOrdersById")]
-        public WorksOrder GetWorksOrdersById(string id)
+        public WorksOrderModel GetWorksOrdersById(string id)
         {
             return db.GetWorksOrdersByWorkdsOrderNumber(id);
         }

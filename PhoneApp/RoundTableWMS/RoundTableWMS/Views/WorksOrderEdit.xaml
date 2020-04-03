@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:controls="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RoundTableWMS.Views.WorksOrderEdit">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 20, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <StackLayout>
+
+
+            <Label x:Name="lblWorksOrderNo" ></Label>
+            <telerikInput:RadEntry x:Name="txtDescription" WatermarkText="Description"/>
+
+            <telerikInput:RadEntry x:Name="txtNotes" WatermarkText="Notes"/>
+
+            <telerikGrid:RadDataGrid x:Name="grdOrderLines"  UserFilterMode="Auto" SelectionMode="Single"    ItemsSource="{Binding Source}" AutoGenerateColumns="False" >
+                <telerikGrid:RadDataGrid.Columns>
+                    <telerikGrid:DataGridTextColumn  PropertyName="WorksOrderNumber" SizeMode="Auto"/>
+                    <telerikGrid:DataGridTextColumn PropertyName="Description" SizeMode="Auto"/>
+                    <telerikGrid:DataGridDateColumn PropertyName="DateDue" SizeMode="Auto"/>
+                    <telerikGrid:DataGridBooleanColumn PropertyName="isActive" 
+                                    HeaderText="Active?" SizeMode="Auto">
+                        <telerikGrid:DataGridBooleanColumn.CellContentStyle>
+                            <telerikGrid:DataGridTextCellStyle TextColor="Green" 
+                                            FontSize="18" 
+                                            SelectedTextColor="Blue" />
+                        </telerikGrid:DataGridBooleanColumn.CellContentStyle>
+                    </telerikGrid:DataGridBooleanColumn>
+                </telerikGrid:RadDataGrid.Columns>
+            </telerikGrid:RadDataGrid>
+
+
+
+            <Switch IsToggled="false" />
+
+            <Label Text="Start Date"
+            
+               HorizontalTextAlignment="Start" />
+            <DatePicker x:Name="rdDaatePicker"   />
+            <Label Text="End Date"
+            
+               HorizontalTextAlignment="Start" />
+            <DatePicker x:Name="rdEndDate" />
+
+            <Label x:Name="lblSign" Text="Customer Signature">
+            </Label>
+            <controls:SignaturePadView
+	x:Name="signatureView"
+                HeightRequest="400"
+	StrokeWidth="3"
+	StrokeColor="Black"
+	BackgroundColor="white" />
+            <Picker x:Name="picker"
+        Title="Select a Work Order Status"
+        TitleColor="Red">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}" >
+                        <x:String>Closed</x:String>
+                        <x:String>Completed</x:String>
+                        <x:String>On Hold</x:String>
+                        <x:String>Awaiting Part</x:String>
+                        <x:String>Customer Not Present</x:String>
+
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+           
+
+
+                <telerikInput:RadButton x:Name="btnSaveWorkOrder" Text="Save Work Order" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
