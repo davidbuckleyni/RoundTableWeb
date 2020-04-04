@@ -8,7 +8,7 @@ xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.
              mc:Ignorable="d"
              x:Class="RoundTableWMS.Views.WorksOrder">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout><Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*" /></Grid.ColumnDefinitions><Grid.RowDefinitions><RowDefinition Height="*" /></Grid.RowDefinitions></Grid>
             <telerikInput:RadEntry x:Name="txtCustomerAccountNo" WatermarkText="Please enter Customer Account No" WatermarkTextColor="Black" />
         <telerikInput:RadButton x:Name="btnSearchWorkOrders" Text="Search Work Orders" />
         <telerikGrid:RadDataGrid x:Name="grdWorksOrders"  SelectionMode="Single"  SelectionChanged="grdWorksOrders_SelectionChanged"  ItemsSource="{Binding Source}" AutoGenerateColumns="False" >

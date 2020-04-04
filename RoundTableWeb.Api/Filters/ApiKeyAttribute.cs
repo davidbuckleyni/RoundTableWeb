@@ -12,8 +12,8 @@ namespace RoundTableWeb.Api
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class ApiKeyAttribute : Attribute, IAsyncActionFilter
     {
-        private const string ApiKeyHeaderName = "ApiKey";
-        private const string ClientId = "ClientId";
+        public  string ApiKeyHeaderName = "ApiKey";
+        public   string ClientSecret = "ClientSecret";
         RoundTableERPContext db = new RoundTableERPContext();
 
         public async  Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
@@ -27,16 +27,16 @@ namespace RoundTableWeb.Api
             }
 
             // before
-            if (!context.HttpContext.Request.Headers.TryGetValue(ClientId, out var potentialClientId))
+            if (!context.HttpContext.Request.Headers.TryGetValue(ClientSecret, out var potentialClientId))
             {
                 context.Result = new UnauthorizedResult();
                 return;
 
 
             }
-            var ClientId = Guid.TryParse(potentialApiKey, out Guid headerClientId);
-            var ApiKey = Guid.TryParse(potentialApiKey, out Guid headerApiKey);
-            if (!db.FindKeysByClientIdByApiKey(headerClientId, headerApiKey))
+            Guid.TryParse(potentialApiKey, out Guid headerApiKey);
+            Guid.TryParse(potentialClientId, out Guid headerClientId);            
+            if (!db.FindKeysByClientIdByApiKey(headerApiKey, headerClientId))
             {
                 context.Result = new UnauthorizedResult();
                 return;

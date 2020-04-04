@@ -24,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoundTableWMS", "PhoneApp\R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoundTableDal", "RoundTableDalS\RoundTableDalS\RoundTableDal.csproj", "{D094C283-6F38-47A5-83A7-BAFAA9B85FEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoundTableAPIStandard", "RoundTableModels\RoundTableModels\RoundTableAPIStandard.csproj", "{9A3AB870-3326-4425-B8FA-F491FA939452}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoundTableAPIStandard", "RoundTableModels\RoundTableModels\RoundTableAPIStandard.csproj", "{9A3AB870-3326-4425-B8FA-F491FA939452}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +111,7 @@ Global
 		{49DCF5F5-E98B-4E15-BD87-442DEF3B5B34}.Release|Any CPU.ActiveCfg = Release|iPhone
 		{49DCF5F5-E98B-4E15-BD87-442DEF3B5B34}.Release|iPhone.ActiveCfg = Release|iPhone
 		{49DCF5F5-E98B-4E15-BD87-442DEF3B5B34}.Release|iPhone.Build.0 = Release|iPhone
+		{49DCF5F5-E98B-4E15-BD87-442DEF3B5B34}.Release|iPhone.Deploy.0 = Release|iPhone
 		{49DCF5F5-E98B-4E15-BD87-442DEF3B5B34}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{49DCF5F5-E98B-4E15-BD87-442DEF3B5B34}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{61A1B652-DD99-4C23-BB5D-1DE86D4B9023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

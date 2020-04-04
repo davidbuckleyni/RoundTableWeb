@@ -194,8 +194,8 @@ namespace RoundTableDal
            ApiKeys results = new ApiKeys();
             using (var connection = new SqlConnection(constr))
             {
-                return connection.Query<ApiKeys>($"SELECT * FROM {schemaDefination}.[ApiKeys] where ClientId= @ClientId and ApiKey=@ApiKey and isActive=1 and isDeleted!=1",
-                  new { ApiKey = apiKey, ClientId = clientId }).Any();
+               return connection.Query<ApiKeys>($"SELECT * FROM {schemaDefination}.[ApiKeys] where ClientId= @ClientId and ApiKey=@ApiKey and isActive=1 and isDeleted!=1",
+                  new { ApiKey = apiKey, ClientId = clientId }).Any();            
 
 
             }
