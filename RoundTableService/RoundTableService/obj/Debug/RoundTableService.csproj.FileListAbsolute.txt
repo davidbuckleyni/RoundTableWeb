@@ -1,0 +1,6 @@
+D:\MasterCode\WebSite\RoundTableService\RoundTableService\bin\Debug\RoundTableService.exe.config
+D:\MasterCode\WebSite\RoundTableService\RoundTableService\bin\Debug\RoundTableService.exe
+D:\MasterCode\WebSite\RoundTableService\RoundTableService\bin\Debug\RoundTableService.pdb
+D:\MasterCode\WebSite\RoundTableService\RoundTableService\obj\Debug\RoundTableService.csproj.CoreCompileInputs.cache
+D:\MasterCode\WebSite\RoundTableService\RoundTableService\obj\Debug\RoundTableService.exe
+D:\MasterCode\WebSite\RoundTableService\RoundTableService\obj\Debug\RoundTableService.pdb

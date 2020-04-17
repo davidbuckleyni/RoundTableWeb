@@ -24,7 +24,7 @@ namespace RoundTableDal
         private readonly ConnectionStringConfig config;
 
         private string schemaDefination = "dbo";
-
+        
         public RoundTableERPContext()
         {
             constr = appconfig.ConnectionString;

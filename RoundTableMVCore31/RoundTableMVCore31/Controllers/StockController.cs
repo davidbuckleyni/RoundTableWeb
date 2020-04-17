@@ -23,7 +23,7 @@ namespace RoundTableERP.Controllers
     {
         private readonly IStringLocalizer<StockController> _localizer;
 
-        RoundTableAPIClient apiClient = new RoundTableAPIClient();
+        RoundTableAPIClient apiClient;
 
         public IActionResult SetLanguage(string culture, string returnUrl)
         {
@@ -40,6 +40,8 @@ namespace RoundTableERP.Controllers
         public StockController(IStringLocalizer<StockController> localizer)
         {
             _localizer = localizer;
+            apiClient = new RoundTableAPIClient("B538F53B-37F7-4564-B7C5-56AFF399252B", "8132ED0B-8F0B-4841-8BF4-CE8438AC0F3E");
+ 
         }
 
         public IActionResult Index()
@@ -69,7 +71,11 @@ namespace RoundTableERP.Controllers
         {
             List<Stock> _result = new List<Stock>();
             apiClient.DeveiceType = device.Desktop;
-            _result =  await apiClient.GetStockFromApi();
+            apiClient.DeveiceType = device.Desktop;
+            apiClient.ApiKey = "B538F53B-37F7-4564-B7C5-56AFF399252B";
+            apiClient.ClientSecret = "8132ED0B-8F0B-4841-8BF4-CE8438AC0F3E";
+        
+            _result =  await apiClient.GetStockFromApi(apiClient.ApiKey,apiClient.ClientSecret);
             return DataSourceLoader.Load(_result, loadOptions);
         }
     
@@ -89,7 +95,10 @@ namespace RoundTableERP.Controllers
             [HttpPut]
         public async  Task<IActionResult> Put(int key, string values )
         {
-             var stockItem =  apiClient.GetStockFromApi().Result.First(s=>s.ID==key);
+            apiClient.ApiKey = "B538F53B-37F7-4564-B7C5-56AFF399252B";
+            apiClient.ClientSecret = "8132ED0B-8F0B-4841-8BF4-CE8438AC0F3E";
+
+            var stockItem =  apiClient.GetStockFromApi(apiClient.ApiKey, apiClient.ClientSecret).Result.First(s=>s.ID==key);
             JsonConvert.PopulateObject(values, stockItem);
 
             await apiClient.PostUpdateStock(stockItem);

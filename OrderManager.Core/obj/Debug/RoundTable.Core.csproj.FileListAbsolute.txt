@@ -1,0 +1,14 @@
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\RoundTableCore.dll
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\RoundTableCore.pdb
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\Telerik.WinControls.dll
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\Telerik.WinControls.Themes.VisualStudio2012Dark.dll
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\Telerik.WinControls.UI.dll
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\TelerikCommon.dll
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\Telerik.WinControls.xml
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\Telerik.WinControls.UI.xml
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\obj\Debug\CoreLibary.OrderNumberForm.resources
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\obj\Debug\RoundTable.Core.csproj.GenerateResource.cache
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\obj\Debug\RoundTableCore.dll.licenses
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\obj\Debug\RoundTable.Core.csproj.CopyComplete
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\obj\Debug\RoundTableCore.dll
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\obj\Debug\RoundTableCore.pdb

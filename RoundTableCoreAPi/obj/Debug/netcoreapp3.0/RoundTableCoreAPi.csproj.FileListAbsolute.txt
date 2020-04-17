@@ -1,0 +1,5 @@
+D:\GitMaster\Freelancer\SalesOrders\RoundTableCoreAPi\RoundTableCoreAPi\bin\Debug\netcoreapp3.0\RoundTableCoreAPi.deps.json
+D:\GitMaster\Freelancer\SalesOrders\RoundTableCoreAPi\RoundTableCoreAPi\bin\Debug\netcoreapp3.0\RoundTableCoreAPi.dll
+D:\GitMaster\Freelancer\SalesOrders\RoundTableCoreAPi\RoundTableCoreAPi\obj\Debug\netcoreapp3.0\RoundTableCoreAPi.csprojAssemblyReference.cache
+D:\GitMaster\Freelancer\SalesOrders\RoundTableCoreAPi\RoundTableCoreAPi\obj\Debug\netcoreapp3.0\RoundTableCoreAPi.AssemblyInfoInputs.cache
+D:\GitMaster\Freelancer\SalesOrders\RoundTableCoreAPi\RoundTableCoreAPi\obj\Debug\netcoreapp3.0\RoundTableCoreAPi.AssemblyInfo.cs

@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "5ILlwG/UrFgtolUAQ9a5fiCKxB44Q1k7Q62LijNRT/w0IgT+v4U4Ld3iWKssanGpom15N35D4uMkMQjhqiMMRA==",
+  "success": true,
+  "projectFilePath": "D:\\MasterCode\\WebSite\\RoundTableModels\\RoundTableModels\\RoundTableAPIStandard.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\David\\.nuget\\packages\\dapper\\2.0.30\\dapper.2.0.30.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\dapper.contrib\\2.0.30\\dapper.contrib.2.0.30.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.csharp\\4.6.0\\microsoft.csharp.4.6.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.reflection.emit\\4.6.0\\system.reflection.emit.4.6.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.6.0\\system.reflection.emit.ilgeneration.4.6.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.reflection.emit.lightweight\\4.6.0\\system.reflection.emit.lightweight.4.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}

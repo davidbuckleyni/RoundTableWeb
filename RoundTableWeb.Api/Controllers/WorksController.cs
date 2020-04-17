@@ -11,12 +11,14 @@ namespace RoundTableWeb.Api.Controllers
 {
 
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
+
     public class WorksController : ControllerBase
     {
         RoundTableERPContext db = new RoundTableERPContext();
 
         // GET: api/Works
+        [HttpGet]
         public IEnumerable<WorksOrderModel> Get()
         {
             return db.GetAllActiveWorksOrders();

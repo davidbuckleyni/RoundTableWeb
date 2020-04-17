@@ -1,0 +1,178 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\MasterCode\\WebSite\\RoundTableDalS\\RoundTableDalS\\RoundTableDal.csproj": {}
+  },
+  "projects": {
+    "D:\\MasterCode\\WebSite\\RoundTableDalS\\RoundTableDalS\\RoundTableDal.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\MasterCode\\WebSite\\RoundTableDalS\\RoundTableDalS\\RoundTableDal.csproj",
+        "projectName": "RoundTableDal",
+        "projectPath": "D:\\MasterCode\\WebSite\\RoundTableDalS\\RoundTableDalS\\RoundTableDal.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "D:\\MasterCode\\WebSite\\RoundTableDalS\\RoundTableDalS\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "D:\\MasterCode\\WebSite\\NuGet.Config",
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R3 2019": {},
+          "C:\\Users\\David\\.nuget\\packages\\": {},
+          "D:\\GitMaster\\DiialogKit": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/nuget": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "D:\\MasterCode\\WebSite\\RoundTableModels\\RoundTableModels\\RoundTableAPIStandard.csproj": {
+                "projectPath": "D:\\MasterCode\\WebSite\\RoundTableModels\\RoundTableModels\\RoundTableAPIStandard.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.30, )"
+            },
+            "Dapper.Contrib": {
+              "target": "Package",
+              "version": "[2.0.30, )"
+            },
+            "Dapper.FastCrud": {
+              "target": "Package",
+              "version": "[2.5.0.39, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[8.6.2, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300-preview-015048\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\MasterCode\\WebSite\\RoundTableModels\\RoundTableModels\\RoundTableAPIStandard.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\MasterCode\\WebSite\\RoundTableModels\\RoundTableModels\\RoundTableAPIStandard.csproj",
+        "projectName": "RoundTableAPIStandard",
+        "projectPath": "D:\\MasterCode\\WebSite\\RoundTableModels\\RoundTableModels\\RoundTableAPIStandard.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "D:\\MasterCode\\WebSite\\RoundTableModels\\RoundTableModels\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "D:\\MasterCode\\WebSite\\NuGet.Config",
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R3 2019": {},
+          "C:\\Users\\David\\.nuget\\packages\\": {},
+          "D:\\GitMaster\\DiialogKit": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/nuget": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.30, )"
+            },
+            "Dapper.Contrib": {
+              "target": "Package",
+              "version": "[2.0.30, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300-preview-015048\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

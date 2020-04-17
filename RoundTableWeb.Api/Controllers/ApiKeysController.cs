@@ -9,7 +9,8 @@ using RoundTableDal;
 
 namespace RoundTableWeb.Api.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
+
     [ApiController]
   
     public class ApiKeysController : ControllerBase

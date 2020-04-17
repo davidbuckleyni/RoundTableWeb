@@ -1,0 +1,5 @@
+D:\MasterCode\WebSite\RoundTableDalS\RoundTableDalS\bin\Debug\netstandard2.0\RoundTableDalS.deps.json
+D:\MasterCode\WebSite\RoundTableDalS\RoundTableDalS\bin\Debug\netstandard2.0\RoundTableDalS.dll
+D:\MasterCode\WebSite\RoundTableDalS\RoundTableDalS\obj\Debug\netstandard2.0\RoundTableDalS.csprojAssemblyReference.cache
+D:\MasterCode\WebSite\RoundTableDalS\RoundTableDalS\obj\Debug\netstandard2.0\RoundTableDalS.AssemblyInfoInputs.cache
+D:\MasterCode\WebSite\RoundTableDalS\RoundTableDalS\obj\Debug\netstandard2.0\RoundTableDalS.AssemblyInfo.cs

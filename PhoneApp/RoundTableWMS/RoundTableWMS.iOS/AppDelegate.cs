@@ -27,7 +27,7 @@ namespace RoundTableWMS.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
-            Abstractions.Init();
+           
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

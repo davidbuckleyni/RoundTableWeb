@@ -9,7 +9,7 @@ namespace RoundTableMVCore31.Controllers
 {
     public class WorksOrderController : Controller
     {
-        RoundTableAPIClient apiClient = new RoundTableAPIClient();
+        RoundTableAPIClient apiClient;
 
         public IActionResult Index()
         {

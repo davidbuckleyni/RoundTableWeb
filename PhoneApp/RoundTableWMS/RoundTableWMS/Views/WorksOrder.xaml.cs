@@ -16,11 +16,14 @@ namespace RoundTableWMS.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WorksOrder : ContentPage
     {
-        RoundTableAPIClient _client = new RoundTableAPIClient();
+        RoundTableAPIClient _client;
         public string ApiUrl { get; set; }
         public WorksOrder()
         {
             InitializeComponent();
+            _client   = new RoundTableAPIClient("B538F53B-37F7-4564-B7C5-56AFF399252B", "8132ED0B-8F0B-4841-8BF4-CE8438AC0F3E");
+            _client.IpAddress = "http://192.168.1.6:88/";
+     
             SetIpAddress();
             LoadData();
         }

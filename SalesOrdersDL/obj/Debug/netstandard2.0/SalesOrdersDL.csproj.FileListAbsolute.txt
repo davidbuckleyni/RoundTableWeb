@@ -1,0 +1,7 @@
+d:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\obj\Debug\netstandard2.0\SalesOrdersDL.AssemblyInfoInputs.cache
+d:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\obj\Debug\netstandard2.0\SalesOrdersDL.AssemblyInfo.cs
+D:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\bin\Debug\netstandard2.0\SalesOrdersDL.deps.json
+D:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\bin\Debug\netstandard2.0\SalesOrdersDL.dll
+D:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\bin\Debug\netstandard2.0\SalesOrdersDL.pdb
+D:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\obj\Debug\netstandard2.0\SalesOrdersDL.dll
+D:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\obj\Debug\netstandard2.0\SalesOrdersDL.pdb

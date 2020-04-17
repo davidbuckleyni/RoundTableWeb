@@ -1,0 +1,9 @@
+D:\MasterCode\WebSite\RoundTableDal\RoundTableDal\bin\Debug\netcoreapp3.1\RoundTableDal.deps.json
+D:\MasterCode\WebSite\RoundTableDal\RoundTableDal\bin\Debug\netcoreapp3.1\RoundTableDal.dll
+D:\MasterCode\WebSite\RoundTableDal\RoundTableDal\bin\Debug\netcoreapp3.1\RoundTableDal.pdb
+D:\MasterCode\WebSite\RoundTableDal\RoundTableDal\obj\Debug\netcoreapp3.1\RoundTableDal.AssemblyInfoInputs.cache
+D:\MasterCode\WebSite\RoundTableDal\RoundTableDal\obj\Debug\netcoreapp3.1\RoundTableDal.AssemblyInfo.cs
+D:\MasterCode\WebSite\RoundTableDal\RoundTableDal\obj\Debug\netcoreapp3.1\RoundTableDal.dll
+D:\MasterCode\WebSite\RoundTableDal\RoundTableDal\obj\Debug\netcoreapp3.1\RoundTableDal.pdb
+D:\MasterCode\WebSite\RoundTableDal\RoundTableDal\obj\Debug\netcoreapp3.1\RoundTableDal.csproj.CoreCompileInputs.cache
+D:\MasterCode\WebSite\RoundTableDal\RoundTableDal\obj\Debug\netcoreapp3.1\RoundTableDal.csprojAssemblyReference.cache

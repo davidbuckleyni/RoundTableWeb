@@ -1,0 +1,8 @@
+d:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\bin\Release\netstandard2.0\RoundTableERPDal.deps.json
+d:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\bin\Release\netstandard2.0\RoundTableERPDal.dll
+d:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\bin\Release\netstandard2.0\RoundTableERPDal.pdb
+d:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\obj\Release\netstandard2.0\RoundTableERPDal.AssemblyInfoInputs.cache
+d:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\obj\Release\netstandard2.0\RoundTableERPDal.AssemblyInfo.cs
+d:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\obj\Release\netstandard2.0\RoundTableERPDal.dll
+d:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\obj\Release\netstandard2.0\RoundTableERPDal.pdb
+D:\GitMaster\Freelancer\SalesOrders\DataAccessLayer\SalesOrdersDL\obj\Release\netstandard2.0\RoundTableERPDal.csprojAssemblyReference.cache

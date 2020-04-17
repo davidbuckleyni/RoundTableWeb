@@ -1,0 +1,15 @@
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\OrderManager.Core.dll
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\OrderManager.Core.pdb
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\obj\Debug\OrderManager.Core.dll
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\obj\Debug\OrderManager.Core.pdb
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\Telerik.WinControls.dll
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\Telerik.WinControls.Themes.VisualStudio2012Dark.dll
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\Telerik.WinControls.UI.dll
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\TelerikCommon.dll
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\Telerik.WinControls.xml
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\bin\Debug\Telerik.WinControls.UI.xml
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\obj\Debug\CoreLibary.OrderNumberForm.resources
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\obj\Debug\OrderManager.Core.csproj.GenerateResource.cache
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\obj\Debug\OrderManager.Core.dll.licenses
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\obj\Debug\OrderManager.Core.csproj.CopyComplete
+d:\GitMaster\Freelancer\SalesOrders\OrderManager.Core\OrderManager.Core\obj\Debug\OrderManager.Core.csprojAssemblyReference.cache

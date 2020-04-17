@@ -1,0 +1,12 @@
+D:\MasterCode\WebSite\RoundTableConsoleTools\RoundTableConsoleTools\bin\Debug\netcoreapp3.1\RoundTableConsoleTools.exe
+D:\MasterCode\WebSite\RoundTableConsoleTools\RoundTableConsoleTools\bin\Debug\netcoreapp3.1\RoundTableConsoleTools.deps.json
+D:\MasterCode\WebSite\RoundTableConsoleTools\RoundTableConsoleTools\bin\Debug\netcoreapp3.1\RoundTableConsoleTools.runtimeconfig.json
+D:\MasterCode\WebSite\RoundTableConsoleTools\RoundTableConsoleTools\bin\Debug\netcoreapp3.1\RoundTableConsoleTools.runtimeconfig.dev.json
+D:\MasterCode\WebSite\RoundTableConsoleTools\RoundTableConsoleTools\bin\Debug\netcoreapp3.1\RoundTableConsoleTools.dll
+D:\MasterCode\WebSite\RoundTableConsoleTools\RoundTableConsoleTools\bin\Debug\netcoreapp3.1\RoundTableConsoleTools.pdb
+D:\MasterCode\WebSite\RoundTableConsoleTools\RoundTableConsoleTools\obj\Debug\netcoreapp3.1\RoundTableConsoleTools.AssemblyInfoInputs.cache
+D:\MasterCode\WebSite\RoundTableConsoleTools\RoundTableConsoleTools\obj\Debug\netcoreapp3.1\RoundTableConsoleTools.AssemblyInfo.cs
+D:\MasterCode\WebSite\RoundTableConsoleTools\RoundTableConsoleTools\obj\Debug\netcoreapp3.1\RoundTableConsoleTools.csproj.CoreCompileInputs.cache
+D:\MasterCode\WebSite\RoundTableConsoleTools\RoundTableConsoleTools\obj\Debug\netcoreapp3.1\RoundTableConsoleTools.dll
+D:\MasterCode\WebSite\RoundTableConsoleTools\RoundTableConsoleTools\obj\Debug\netcoreapp3.1\RoundTableConsoleTools.pdb
+D:\MasterCode\WebSite\RoundTableConsoleTools\RoundTableConsoleTools\obj\Debug\netcoreapp3.1\RoundTableConsoleTools.genruntimeconfig.cache

@@ -6,13 +6,15 @@ namespace RoundTableCore
 {
     public static class Constants
     {
+        public const string ApiKey = "ApiKey";
 
+        public const string ClientSecret = "ClientSecret";
 
-        public const string andriodAPi = "http://10.0.2.2:88/";
+        public const string andriodAPi = "http://192.168.1.6:88/";
 
-        public const string isoApi = "http://localhost:88/";
+        public const string isoApi = "http://192.168.1.6:88/";
 
-        public const string deskTopApiUrl = "http://localhost:88/";
+        public const string deskTopApiUrl = "http://192.168.1.6:63980/";
 
 
         public const string GetALlStock = "stock/";
@@ -28,7 +30,7 @@ namespace RoundTableCore
 
         public static string BuildUrl()
         {
-            return "http://localhost:88/";
+            return "http://192.168.1.6:88/";
 
 
         }
